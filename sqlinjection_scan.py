@@ -118,10 +118,17 @@ class Injection_Scan:
 
 def getsql(url):
 	Injection_Scan(url).run()
-
-file1=codecs.open(sys.argv[1],'r').readlines()
+try:
+	file1=codecs.open(sys.argv[1],'r').readlines()
+except:
+	print '[-]Please input text!'
+	exit()
 try:
 	pool=TP(int(sys.argv[2]))
+except:
+	print '[-]Please enter the thread!'
+	exit()
+try:
 	res=pool.map(getsql,file1)
 	pool.close()
 	pool.join()
