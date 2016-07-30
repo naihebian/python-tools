@@ -105,7 +105,7 @@ class Injection_Scan:
             else:
                 break
 
-            if time.time() - self.start_time > 180:
+            if time.time() - self.start_time > 360:
                 error=True
                 self.scan_stop()
                 self.scan_kill()
